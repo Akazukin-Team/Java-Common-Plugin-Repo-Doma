@@ -8,7 +8,7 @@ import org.seasar.doma.jdbc.SqlExecutionSkipCause;
 import java.sql.SQLException;
 
 @Slf4j
-public final class IJdbcLogger implements JdbcLogger {
+public final class JdbcLoggerImpl implements JdbcLogger {
     @Override
     public void logDaoMethodEntering(final String callerClassName, final String callerMethodName, final Object... parameters) {
         log.trace("Start dao  | Class:" + callerClassName + "  | Method:" + callerMethodName);

@@ -19,8 +19,8 @@ public class DomaConfig implements Config {
     Dialect dialect;
     TransactionManager transactionManager;
     LocalTransactionDataSource dataSource;
-    IJdbcLogger jdbcLogger;
-    IUnknownColumnHandler unknownColumnHandler;
+    JdbcLoggerImpl jdbcLogger;
+    UnknownColumnHandlerImpl unknownColumnHandler;
 
     public DomaConfig(final DBConfig config) {
         this.config = config;
@@ -41,9 +41,9 @@ public class DomaConfig implements Config {
                 config.getDBUsername(),
                 config.getDBPassword()
         );
-        this.jdbcLogger = new IJdbcLogger();
+        this.jdbcLogger = new JdbcLoggerImpl();
         this.transactionManager = new LocalTransactionManager(this.dataSource.getLocalTransaction(this.getJdbcLogger()));
-        this.unknownColumnHandler = new IUnknownColumnHandler();
+        this.unknownColumnHandler = new UnknownColumnHandlerImpl();
     }
 
     @Override
