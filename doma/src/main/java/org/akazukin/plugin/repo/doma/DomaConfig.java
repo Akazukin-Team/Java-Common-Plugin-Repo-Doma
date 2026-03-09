@@ -6,7 +6,6 @@ import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 import org.seasar.doma.jdbc.Config;
 import org.seasar.doma.jdbc.dialect.Dialect;
-import org.seasar.doma.jdbc.dialect.MysqlDialect;
 import org.seasar.doma.jdbc.tx.LocalTransactionDataSource;
 import org.seasar.doma.jdbc.tx.LocalTransactionManager;
 import org.seasar.doma.jdbc.tx.TransactionManager;
@@ -35,7 +34,7 @@ public class DomaConfig implements Config {
             throw new RuntimeException(e);
         }
 
-        this.dialect = new MysqlDialect();
+        this.dialect = config.getDBDriver().getDialect();
         this.dataSource = new LocalTransactionDataSource(
                 "jdbc:" + config.getDBDriver().getDriverProtocol() + "://" + config.getDBAuthority() + "/" + config.getDBPath()
                         + (config.getDBArgs() != null ? "?" + config.getDBArgs() : ""),
