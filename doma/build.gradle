@@ -1,0 +1,10 @@
+plugins {
+    id 'buildlogic.java-doma-conventions'
+}
+
+dependencies {
+    compileOnly libs.akz.i18n
+    compileOnly libs.akz.service
+    compileOnly libs.akz.loader
+    compileOnly libs.akz.plugin.repo
+}

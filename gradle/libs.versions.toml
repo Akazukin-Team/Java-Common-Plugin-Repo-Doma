@@ -1,11 +1,20 @@
 [versions]
 #App deps
+akz-util = "5.0.0-SNAPSHOT"
+akz-i18n = "3.0.0-SNAPSHOT"
+akz-event = "3.0.0"
+akz-service = "5.0.0-SNAPSHOT"
+akz-snowflake = "1.2.0"
+akz-loader = "1.0.0-SNAPSHOT"
+akz-plugin-repo = "1.0.0-SNAPSHOT"
 lombok = "1.18.42"
 jetbrains-annotation = "26.1.0"
 slf4j = "2.1.0-alpha1"
 
 # Database deps
 doma = "3.11.1"
+mariadb = "3.5.6"
+mysql = "8.4.0"
 
 # JMH Libraries
 jmh-lib = "1.37"
@@ -13,13 +22,21 @@ jmh-lib = "1.37"
 #Gradle Plugin
 gradle-versions = "0.52.0"
 jmh-pl = "0.7.3"
-doma-plugin = "3.0.0"
+doma-compile = "4.0.3"
+doma-codegen = "3.2.1"
 graalvm = "0.11.5"
 runTask = "2.2.3"
 
 
 [libraries]
 #App deps
+akz-util = { module = "org.akazukin:util", version.ref = "akz-util" }
+akz-i18n = { module = "org.akazukin:i18n", version.ref = "akz-i18n" }
+akz-event = { module = "org.akazukin:event", version.ref = "akz-event" }
+akz-service = { module = "org.akazukin:service", version.ref = "akz-service" }
+akz-snowflake = { module = "org.akazukin:snowflake", version.ref = "akz-snowflake" }
+akz-loader = { module = "org.akazukin:plugin-loader", version.ref = "akz-loader" }
+akz-plugin-repo = { module = "org.akazukin.plugin:common-repo", version.ref = "akz-plugin-repo" }
 lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
 jetbrains-annotations = { module = "org.jetbrains:annotations", version.ref = "jetbrains-annotation" }
 slf4j = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
@@ -27,6 +44,8 @@ slf4j = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
 # Database deps
 doma-core = { module = "org.seasar.doma:doma-core", version.ref = "doma" }
 doma-processor = { module = "org.seasar.doma:doma-processor", version.ref = "doma" }
+mysql = { module = "com.mysql:mysql-connector-j", version.ref = "mysql" }
+mariadb = { module = "org.mariadb.jdbc:mariadb-java-client", version.ref = "mariadb" }
 
 # JMH Libraries
 jmh-core = { module = "org.openjdk.jmh:jmh-core", version.ref = "jmh-lib" }
@@ -36,7 +55,7 @@ jmh-bytecode = { module = "org.openjdk.jmh:jmh-generator-bytecode", version.ref 
 #Gradle Plugin
 gradle-versions = { module = "com.github.ben-manes:gradle-versions-plugin", version.ref = "gradle-versions" }
 jmh-pl = { module = "me.champeau.jmh:me.champeau.jmh.gradle.plugin", version.ref = "jmh-pl" }
-doma-compile = { module = "org.domaframework.doma.compile:org.domaframework.doma.compile.gradle.plugin", version.ref = "doma-plugin" }
-doma-codegen = { module = "org.domaframework.doma.codegen:org.domaframework.doma.codegen.gradle.plugin", version.ref = "doma-plugin" }
+doma-compile = { module = "org.domaframework.doma.compile:org.domaframework.doma.compile.gradle.plugin", version.ref = "doma-compile" }
+doma-codegen = { module = "org.domaframework.doma.codegen:org.domaframework.doma.codegen.gradle.plugin", version.ref = "doma-codegen" }
 graalvm = { module = "org.graalvm.buildtools.native:org.graalvm.buildtools.native.gradle.plugin", version.ref = "graalvm" }
 runTask = { module = "xyz.jpenilla:run-task", version.ref = "runTask" }

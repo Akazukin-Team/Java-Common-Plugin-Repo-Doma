@@ -21,5 +21,14 @@ repositories {
         }
     }
 
+    maven {
+        name = 'Akazukin Repository - Public Library'
+        url = 'https://maven.akazukin.org/refer/maven-public-plugins/'
+
+        content {
+            includeGroup 'org.akazukin.plugin'
+        }
+    }
+
     mavenCentral()
 }

@@ -1,8 +1,8 @@
-# <PLACEHOLDER_NAME>
+# Common Plugin for Doma Repository
 
-[![Build Status](https://github.com/Akazukin-Team/<PLACEHOLDER_REPO>/actions/workflows/build.yml/badge.svg)](https://github.com/Akazukin-Team/<PLACEHOLDER_REPO>/actions/workflows/build.yml)
+[![Build Status](https://github.com/Akazukin-Team/Java-Common-Plugin-Repo-Doma/actions/workflows/build.yml/badge.svg)](https://github.com/Akazukin-Team/Java-Common-Plugin-Repo-Doma/actions/workflows/build.yml)
 
-<PLACEHOLDER_DESCRIPTION>
+A common plugin for repository management using doma.
 
 ---
 
@@ -11,7 +11,7 @@
 - [Features](#features)
 - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
+  - [Installation](#installation)
 - [Contributing](#contributing)
 - [Build Instructions](#build-instructions)
 - [Continuous Integration](#continuous-integration)
@@ -46,15 +46,15 @@ Make sure you have the following installed:
    <repository>
        <id>akazukin-repo</id>
        <name>Akazukin Repository</name>
-       <url>https://maven.akazukin.org/refer/maven-<PLACEHOLDER_MAVEN>/</url>
+       <url>https://maven.akazukin.org/refer/maven-public-plugins/</url>
    </repository>
    ```
 
 2. Add the dependency to the `<dependencies>` block in your `pom.xml` file:
    ```xml
    <dependency>
-       <groupId>org.akazukin</groupId>
-       <artifactId><PLACEHOLDER_ARTIFACT></artifactId>
+       <groupId>org.akazukin.plugins</groupId>
+       <artifactId>common-repo-doma</artifactId>
        <version>VERSION</version>
    </dependency>
    ```
@@ -68,13 +68,13 @@ Make sure you have the following installed:
    ```groovy
    maven {
        name = 'Akazukin Repository'
-       url = 'https://maven.akazukin.org/refer/maven-<PLACEHOLDER_MAVEN>/'
+       url = 'https://maven.akazukin.org/refer/maven-public-plugins/'
    }
    ```
 
 2. Add the dependency to the `dependencies` block in your `build.gradle` file:
    ```groovy
-   implementation 'org.akazukin:<PLACEHOLDER_ARTIFACT>:<VERSION>'
+   implementation 'org.akazukin.plugins:common-repo-doma:<VERSION>'
    ```
 
 ---
@@ -93,8 +93,8 @@ To build the project from source, follow these steps:
 1. Clone the repository:
 
    ```shell
-   git clone https://github.com/Akazukin-Team/<PLACEHOLDER_REPO>.git
-   cd <PLACEHOLDER_REPO>
+   git clone https://github.com/Akazukin-Team/Java-Common-Plugin-Repo-Doma.git
+   cd Java-Common-Plugin-Repo-Doma
    ```
 
 2. Build the project with Gradle:
