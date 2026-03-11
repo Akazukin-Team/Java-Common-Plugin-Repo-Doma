@@ -1,6 +1,7 @@
 package org.akazukin.plugin.repo.doma.driver;
 
 import org.akazukin.service.manager.holder.ServiceManagerHolder;
+import org.akazukin.service.registry.IServiceRegistry;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
@@ -11,21 +12,13 @@ public class DriverManager extends ServiceManagerHolder<IDriver> implements IDri
     }
 
     @Override
-    public void registerRegistry(final IDriverRegistry reg) {
-        if (!(reg instanceof DriverRegistry)) {
-            throw new IllegalArgumentException("The registry must be an instance: " + DriverRegistry.class.getName());
-        }
-
-        super.registerStore((DriverRegistry) reg);
+    public void registerRegistry(final IServiceRegistry<IDriver> reg) {
+        super.registerStore(reg);
     }
 
     @Override
-    public void unregisterRegistry(final IDriverRegistry reg) {
-        if (!(reg instanceof DriverRegistry)) {
-            throw new IllegalArgumentException("The registry must be an instance: " + DriverRegistry.class.getName());
-        }
-
-        super.unregisterStore((DriverRegistry) reg);
+    public void unregisterRegistry(final IServiceRegistry<IDriver> reg) {
+        super.unregisterStore(reg);
     }
 
     @Override

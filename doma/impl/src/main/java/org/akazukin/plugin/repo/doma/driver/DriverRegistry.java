@@ -6,14 +6,4 @@ public class DriverRegistry extends SingleServiceRegistry<IDriver> implements ID
     public DriverRegistry() {
         super(IDriver.class);
     }
-
-    @Override
-    public void registerDriver(final IDriver driver) {
-        super.registerService(driver);
-    }
-
-    @Override
-    public void unregisterDriver(final IDriver driver) {
-        super.unregisterService(driver);
-    }
 }
