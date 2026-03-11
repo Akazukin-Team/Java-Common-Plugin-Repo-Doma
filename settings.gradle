@@ -9,9 +9,10 @@ plugins {
 rootProject.name = 'Common Plugin for Doma Repository'
 
 include(
-        'doma'
+        ':doma:api',
+        ':doma:impl'
 )
 
 include(
-        'publish'
+        ':publish'
 )

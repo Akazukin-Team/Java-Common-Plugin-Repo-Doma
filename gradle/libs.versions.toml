@@ -1,12 +1,9 @@
 [versions]
 #App deps
-akz-util = "5.0.0-SNAPSHOT"
-akz-i18n = "3.0.0-SNAPSHOT"
-akz-event = "3.0.0"
 akz-service = "5.0.0-SNAPSHOT"
-akz-snowflake = "1.2.0"
 akz-loader = "1.0.0-SNAPSHOT"
 akz-plugin-repo = "1.0.0-SNAPSHOT"
+akz-plugin-config = "1.0.0-SNAPSHOT"
 lombok = "1.18.42"
 jetbrains-annotation = "26.1.0"
 slf4j = "2.1.0-alpha1"
@@ -30,13 +27,10 @@ runTask = "2.2.3"
 
 [libraries]
 #App deps
-akz-util = { module = "org.akazukin:util", version.ref = "akz-util" }
-akz-i18n = { module = "org.akazukin:i18n", version.ref = "akz-i18n" }
-akz-event = { module = "org.akazukin:event", version.ref = "akz-event" }
 akz-service = { module = "org.akazukin:service", version.ref = "akz-service" }
-akz-snowflake = { module = "org.akazukin:snowflake", version.ref = "akz-snowflake" }
 akz-loader = { module = "org.akazukin:plugin-loader", version.ref = "akz-loader" }
 akz-plugin-repo = { module = "org.akazukin.plugin:common-repo", version.ref = "akz-plugin-repo" }
+akz-plugin-config = { module = "org.akazukin.plugin:common-config", version.ref = "akz-plugin-config" }
 lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
 jetbrains-annotations = { module = "org.jetbrains:annotations", version.ref = "jetbrains-annotation" }
 slf4j = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }

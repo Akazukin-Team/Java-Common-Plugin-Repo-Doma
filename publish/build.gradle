@@ -3,9 +3,11 @@ plugins {
 }
 
 jar {
-    dependsOn(':doma:jar')
+    dependsOn(':doma:api:jar')
+    dependsOn(':doma:impl:jar')
 }
 
 dependencies {
-    libFatjar project(':doma')
+    libFatjar project(':doma:api')
+    libFatjar project(':doma:impl')
 }
