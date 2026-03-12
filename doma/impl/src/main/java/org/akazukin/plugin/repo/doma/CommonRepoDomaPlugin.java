@@ -1,7 +1,7 @@
 package org.akazukin.plugin.repo.doma;
 
+import lombok.Getter;
 import org.akazukin.loader.api.ILoader;
-import org.akazukin.loader.api.context.IPlugin;
 import org.akazukin.loader.api.context.IPluginContext;
 import org.akazukin.plugin.config.IConfigPlugin;
 import org.akazukin.plugin.config.config.PersistableConfigDataManager;
@@ -20,11 +20,13 @@ import org.akazukin.service.registry.IServiceRegistry;
 import org.akazukin.service.registry.SingleServiceRegistry;
 import org.jetbrains.annotations.NotNull;
 
-public class CommonRepoDomaPlugin implements IPlugin {
+public class CommonRepoDomaPlugin implements ICommonRepoDomaPlugin {
     final ILoader loader;
+    @Getter
     DomaConfig config;
     IServiceRegistry<IConfigDataManager<?>> cfgStore;
     IServiceRegistry<IDriver> driverStore;
+    @Getter
     DriverManager driverMgr;
 
     public CommonRepoDomaPlugin(final ILoader loader) {
@@ -60,7 +62,7 @@ public class CommonRepoDomaPlugin implements IPlugin {
         @NotNull final IPluginContext comRepoCtx = this.loader.getPluginResolver().findById("common-repo");
         @NotNull final ICommonRepoPlugin comRepo = (ICommonRepoPlugin) comRepoCtx.getPlugin();
 
-        comRepo.setRepoMgr(new RepositoryManager<>(IRepository.class));
+        comRepo.setRepoMgr(new RepositoryManager<>((Class<IRepository<?>>) (Object) IRepository.class));
         comRepo.setTxMgr(new DomaTransactionManager(this.config.getTransactionManager()));
     }
 
