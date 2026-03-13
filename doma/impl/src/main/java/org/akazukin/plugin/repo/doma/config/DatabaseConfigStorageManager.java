@@ -2,7 +2,7 @@ package org.akazukin.plugin.repo.doma.config;
 
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
-import org.akazukin.plugin.config.config.data.IDataManager;
+import org.akazukin.plugin.config.config.data.IConfigStorageManager;
 import org.akazukin.plugin.repo.doma.driver.IDriverManager;
 
 import java.io.IOException;
@@ -13,11 +13,11 @@ import java.nio.file.Path;
 import java.util.Properties;
 
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-public class DatabaseDataManager implements IDataManager<DatabaseConfigData> {
+public class DatabaseConfigStorageManager implements IConfigStorageManager<DatabaseConfigData> {
     IDriverManager driverMgr;
     Path path;
 
-    public DatabaseDataManager(final IDriverManager driverMgr, final Path path) {
+    public DatabaseConfigStorageManager(final IDriverManager driverMgr, final Path path) {
         this.driverMgr = driverMgr;
         this.path = path;
     }
