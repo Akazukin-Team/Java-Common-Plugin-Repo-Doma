@@ -1,11 +1,11 @@
 package org.akazukin.plugin.repo.doma.driver;
 
-import org.akazukin.service.registry.IServiceRegistry;
+import org.akazukin.service.manager.IServiceStore;
 
 public interface IDriverManager {
-    void registerRegistry(IServiceRegistry<IDriver> reg);
+    void registerRegistry(IServiceStore<IDriver> reg);
 
-    void unregisterRegistry(IServiceRegistry<IDriver> reg);
+    void unregisterRegistry(IServiceStore<IDriver> reg);
 
     IDriver getDriver(String id);
 }

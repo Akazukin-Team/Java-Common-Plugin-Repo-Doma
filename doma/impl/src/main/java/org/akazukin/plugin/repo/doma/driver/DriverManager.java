@@ -1,7 +1,7 @@
 package org.akazukin.plugin.repo.doma.driver;
 
+import org.akazukin.service.manager.IServiceStore;
 import org.akazukin.service.manager.holder.ServiceManagerHolder;
-import org.akazukin.service.registry.IServiceRegistry;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
@@ -12,12 +12,12 @@ public class DriverManager extends ServiceManagerHolder<IDriver> implements IDri
     }
 
     @Override
-    public void registerRegistry(final IServiceRegistry<IDriver> reg) {
+    public void registerRegistry(final IServiceStore<IDriver> reg) {
         super.registerStore(reg);
     }
 
     @Override
-    public void unregisterRegistry(final IServiceRegistry<IDriver> reg) {
+    public void unregisterRegistry(final IServiceStore<IDriver> reg) {
         super.unregisterStore(reg);
     }
 
