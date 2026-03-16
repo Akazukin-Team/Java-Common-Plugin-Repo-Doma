@@ -4,7 +4,7 @@ akz-service = "5.0.0-SNAPSHOT"
 akz-loader = "1.0.0-SNAPSHOT"
 akz-plugin-repo = "1.0.0-SNAPSHOT"
 akz-plugin-config = "1.0.0-SNAPSHOT"
-lombok = "1.18.42"
+lombok = "1.18.44"
 jetbrains-annotation = "26.1.0"
 slf4j = "2.1.0-alpha1"
 
