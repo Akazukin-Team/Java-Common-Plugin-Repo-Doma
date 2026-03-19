@@ -1,0 +1,11 @@
+id: common-repo-doma
+name: CommonRepoDoma
+version: 1.0.0
+description: A common plugin for repository management using doma.
+main-class: org.akazukin.plugin.repo.doma.CommonRepoDomaPlugin
+
+dependencies:
+  - id: common-repo
+    version: 1.*
+  - id: common-config
+    version: 1.*
