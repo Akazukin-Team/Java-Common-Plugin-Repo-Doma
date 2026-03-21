@@ -11,15 +11,10 @@ import org.akazukin.plugin.repo.doma.driver.IDriver;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public final class DatabaseConfigData implements IDatabaseConfigData {
     IDriver driver;
-
     String authority;
-
     String path;
-
     String username;
-
     String password;
-
     String args;
 
     @Override

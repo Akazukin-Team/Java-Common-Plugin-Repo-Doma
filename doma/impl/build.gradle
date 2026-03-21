@@ -6,7 +6,9 @@ dependencies {
     compileOnly project(':doma:api')
 
     compileOnly libs.akz.service
+
     compileOnly libs.akz.loader
+
     compileOnly libs.akz.plugin.repo
     compileOnly libs.akz.plugin.config
 }
