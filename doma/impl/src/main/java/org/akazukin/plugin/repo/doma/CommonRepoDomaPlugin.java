@@ -19,7 +19,7 @@ import org.akazukin.plugin.repo.doma.driver.IDriver;
 import org.akazukin.plugin.repo.doma.driver.MariaDriver;
 import org.akazukin.plugin.repo.doma.driver.MysqlDriver;
 import org.akazukin.service.registry.IServiceRegistry;
-import org.akazukin.service.registry.SingleServiceRegistry;
+import org.akazukin.service.registry.MultiServiceRegistry;
 import org.jetbrains.annotations.NotNull;
 
 public class CommonRepoDomaPlugin implements ICommonRepoDomaPlugin {
@@ -30,6 +30,8 @@ public class CommonRepoDomaPlugin implements ICommonRepoDomaPlugin {
     IServiceRegistry<IDriver> driverStore;
     @Getter
     DriverManager driverMgr;
+    @Getter
+    RepositoryManager<IRepository<?>> repoMgr;
 
     public CommonRepoDomaPlugin(final ILoader loader) {
         this.loader = loader;
@@ -46,7 +48,7 @@ public class CommonRepoDomaPlugin implements ICommonRepoDomaPlugin {
         this.driverStore.registerService(new MysqlDriver());
 
         {
-            this.cfgStore = new SingleServiceRegistry<>((Class<IConfigDataManager<?>>) (Object) IConfigDataManager.class);
+            this.cfgStore = new MultiServiceRegistry<>((Class<IConfigDataManager<?>>) (Object) IConfigDataManager.class);
 
             @NotNull final IPluginContext comRepoDomaCtx = this.loader.getPluginResolver().findById("common-repo-doma");
 
@@ -58,10 +60,7 @@ public class CommonRepoDomaPlugin implements ICommonRepoDomaPlugin {
 
             this.config = new DomaConfig(cfgDataMgr.getConfig());
         }
-    }
 
-    @Override
-    public void onEnable() {
         {
             @NotNull final IPluginContext comCfgCtx = this.loader.getPluginResolver().findById("common-config");
             @NotNull final IConfigPlugin comCfg = (IConfigPlugin) comCfgCtx.getPlugin();
@@ -70,23 +69,33 @@ public class CommonRepoDomaPlugin implements ICommonRepoDomaPlugin {
         }
 
         {
-            @NotNull final IPluginContext comRepoCtx = this.loader.getPluginResolver().findById("common-repo");
-            @NotNull final ICommonRepoPlugin comRepo = (ICommonRepoPlugin) comRepoCtx.getPlugin();
-
-            comRepo.setRepoMgr(new RepositoryManager<>((Class<IRepository<?>>) (Object) IRepository.class));
-            comRepo.setTxMgr(new DomaTransactionManager(this.config.getTransactionManager()));
+            this.repoMgr = new RepositoryManager<>((Class<IRepository<?>>) (Object) IRepository.class);
         }
     }
 
     @Override
-    public void onDisable() {
+    public void onUnload() {
         {
             @NotNull final IPluginContext comCfgCtx = this.loader.getPluginResolver().findById("common-config");
             @NotNull final IConfigPlugin comCfg = (IConfigPlugin) comCfgCtx.getPlugin();
 
             comCfg.getCfgMgr().unregisterStore(this.cfgStore);
         }
+    }
 
+    @Override
+    public void onEnable() {
+        {
+            @NotNull final IPluginContext comRepoCtx = this.loader.getPluginResolver().findById("common-repo");
+            @NotNull final ICommonRepoPlugin comRepo = (ICommonRepoPlugin) comRepoCtx.getPlugin();
+
+            comRepo.setRepoMgr(this.repoMgr);
+            comRepo.setTxMgr(new DomaTransactionManager(this.config.getTransactionManager()));
+        }
+    }
+
+    @Override
+    public void onDisable() {
         {
             @NotNull final IPluginContext comRepoCtx = this.loader.getPluginResolver().findById("common-repo");
             @NotNull final ICommonRepoPlugin comRepo = (ICommonRepoPlugin) comRepoCtx.getPlugin();
